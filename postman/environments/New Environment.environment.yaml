@@ -1,0 +1,8 @@
+name: New Environment
+values:
+  - key: baseUrl
+    value: ''
+  - key: token
+    value: ''
+  - key: userId
+    value: ''

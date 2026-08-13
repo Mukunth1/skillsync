@@ -1,0 +1,67 @@
+{
+  "paths": [
+    {"slug": "web-dev-101",    "title": "Fullstack Vector & Motion Trail",   "description": "Solve coding tasks and pass concept quizzes along the winding path to clear skill levels!"},
+    {"slug": "python-dsa",     "title": "Python Data Structures & Algorithms Track", "description": "Master Python 3.12 list comprehensions, hash maps, two pointers, and binary trees."},
+    {"slug": "circuits",       "title": "Electrical Eng: Ohm's Law & Circuit Analysis", "description": "Solve resistance equations, Kirchhoff's voltage laws, and digital logic gate problems."},
+    {"slug": "aptitude",       "title": "Quantitative Aptitude & Logical Reasoning Mastery", "description": "Master Clock Angles, Direction Sense, Ages & Ratios, Calendar Day Calculations, and Number System across 30-question milestone quizzes."}
+  ],
+  "milestonesByPath": {
+    "web-dev-101": [
+      {"id": "m1", "title": "HTML5 & DOM Architecture", "type": "quiz", "status": "completed", "xp_reward": 60,
+       "payload": {"title": "HTML5 & DOM Architecture Assessment", "xp_reward": 60,
+         "questions": [{"id":1,"question":"Which element is most appropriate for independent article content?","options":["<section>","<article>","<div>","<main>"],"correctAnswer":1,"explanation":"<article> is designed for standalone distribution or reuse."}]}},
+      {"id": "m2", "title": "Calculate Path Total XP", "type": "code", "status": "active", "xp_reward": 120,
+       "payload": {"title": "Calculate Path Total XP", "difficulty": "Easy", "acceptance": "92.1%", "tags": ["Arrays", "Accumulator"],
+         "instructions": "Write a function sumPathXP(milestones) that returns the sum of all xp_reward values in the milestones array.",
+         "hints": ["Use Array.reduce to accumulate values."],
+         "functionName": "sumPathXP",
+         "starter_code": {"javascript":"function sumPathXP(milestones) {\n  // Write function\n\n}","python":"def sumPathXP(milestones):\n    pass","java":"class Solution {}","cpp":"class Solution {}","c":"int sumPathXP() {}"},
+         "test_cases": [
+           {"name":"Test 1: Sums multiple milestone XP values","args":[[{"xp_reward":50},{"xp_reward":100}]],"expected":150},
+           {"name":"Test 2: Returns 0 for empty array","args":[[]],"expected":0}
+         ],
+         "xp_reward": 120}}
+    ],
+    "python-dsa": [
+      {"id": "py1", "title": "Python List Comprehensions", "type": "quiz", "status": "completed", "xp_reward": 80,
+       "payload": {"title": "Python Essentials Quiz", "xp_reward": 80,
+         "questions": [{"id":1,"question":"Which syntax creates a list of squared numbers for x in range(5)?","options":["[x^2 for x in range(5)]","[x**2 for x in range(5)]","map(x^2, range(5))","list(range(5)^2)"],"correctAnswer":1,"explanation":"In Python, exponentiation is written as `**`."}]}},
+      {"id": "py2", "title": "Two Sum in Python / JS", "type": "code", "status": "active", "xp_reward": 140,
+       "payload": {"title": "Two Sum & Array Hash Index", "difficulty": "Easy", "acceptance": "89.2%", "tags": ["Arrays", "Hash Map"],
+         "instructions": "Given an array of numbers and a target, return indices of two numbers that add up to target.",
+         "hints": ["Use a hash map to store visited elements and their index."],
+         "functionName": "twoSum",
+         "starter_code": {"javascript":"function twoSum(nums, target) {\n  // Write JS solution\n\n}","python":"def twoSum(nums, target):\n    # Write Python solution\n    pass","java":"class Solution {}","cpp":"class Solution {}","c":"int* twoSum() {}"},
+         "test_cases": [{"name":"Test 1: [2, 7, 11, 15], target 9","args":[[2,7,11,15],9],"expected":[0,1]}],
+         "xp_reward": 140}}
+    ],
+    "circuits": [
+      {"id": "c1", "title": "Ohm's Law Essentials", "type": "quiz", "status": "completed", "xp_reward": 70,
+       "payload": {"title": "Ohm's Law & Voltage Assessment", "xp_reward": 70,
+         "questions": [{"id":1,"question":"If voltage V = 12V and resistance R = 4 Ω, what is the current I?","options":["48 A","3 A","0.33 A","16 A"],"correctAnswer":1,"explanation":"By Ohm's law I = V / R = 12 / 4 = 3 Amperes."}]}},
+      {"id": "c2", "title": "Circuit Current Calculator", "type": "code", "status": "active", "xp_reward": 130,
+       "payload": {"title": "Calculate Parallel Resistance R_eq", "difficulty": "Easy", "acceptance": "94.0%", "tags": ["Circuits", "Electrical", "Physics"],
+         "instructions": "Write a function calculateParallelR(r1, r2) that returns (r1 * r2) / (r1 + r2) for two parallel resistors.",
+         "hints": ["Formula is (r1 * r2) / (r1 + r2)"],
+         "functionName": "calculateParallelR",
+         "starter_code": {"javascript":"function calculateParallelR(r1, r2) {\n  // Implement function\n\n}","python":"def calculateParallelR(r1, r2):\n    pass","java":"class Solution {}","cpp":"class Solution {}","c":"float calculateParallelR() {}"},
+         "test_cases": [
+           {"name":"Test 1: Two 10 ohm resistors","args":[10,10],"expected":5},
+           {"name":"Test 2: 12 ohm and 6 ohm resistors","args":[12,6],"expected":4}
+         ],
+         "xp_reward": 130}}
+    ],
+    "aptitude": [
+      {"id": "apt1", "title": "Level 1: Number System & Divisibility", "type": "quiz", "status": "active", "xp_reward": 100,
+       "payload": {"title": "Level 1: Number System & Simplification (30 Questions)", "xp_reward": 100, "questions": []}},
+      {"id": "apt2", "title": "Level 2: Clock Angles & Time Gain/Loss", "type": "quiz", "status": "locked", "xp_reward": 120,
+       "payload": {"title": "Level 2: Clock & Angle Calculation (30 Questions)", "xp_reward": 120, "questions": []}},
+      {"id": "apt3", "title": "Level 3: Direction Sense & Shortest Distance", "type": "quiz", "status": "locked", "xp_reward": 140,
+       "payload": {"title": "Level 3: Direction Sense & Spatial Reasoning (30 Questions)", "xp_reward": 140, "questions": []}},
+      {"id": "apt4", "title": "Level 4: Problems on Ages & Ratios", "type": "quiz", "status": "locked", "xp_reward": 160,
+       "payload": {"title": "Level 4: Problems on Ages & Ratios (30 Questions)", "xp_reward": 160, "questions": []}},
+      {"id": "apt5", "title": "Level 5: Calendar & Day Calculations", "type": "quiz", "status": "locked", "xp_reward": 180,
+       "payload": {"title": "Level 5: Calendar Odd Days & Leap Years (30 Questions)", "xp_reward": 180, "questions": []}}
+    ]
+  }
+}

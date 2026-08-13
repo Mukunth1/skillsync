@@ -1,0 +1,54 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+.pnpm-localappdata/
+.pnpm-appdata/
+.pnpm-home/
+.pnpm-user/
+
+# Build outputs
+dist/
+build/
+target/
+*.class
+*.jar
+
+# Environment files (NEVER commit secrets!)
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Spring Boot
+HELP.md
+.gradle/
+
+# pnpm cache & local tooling
+work/
+.work/
+
+# Local AI agent skills (per-user, not part of the project)
+.agents/
+
+# Eclipse project metadata
+.project
+.classpath
+.settings/
+
+# Postman local workspace (per-user IDs)
+.postman/

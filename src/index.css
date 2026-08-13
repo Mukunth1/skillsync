@@ -1,0 +1,365 @@
+@import "tailwindcss";
+
+/* ============================================================
+ * SKILL SYNC — DESIGN SYSTEM TOKENS
+ * ============================================================
+ * Colors, surfaces, motion, focus, typography. Single source of truth.
+ * ============================================================ */
+
+@layer base {
+  :root {
+    /* Surfaces & background */
+    --bg-base: #0a0f0e;
+    --bg-deep: #060b0a;
+    --surface-1: rgba(255, 255, 255, 0.03);
+    --surface-2: rgba(255, 255, 255, 0.05);
+    --surface-3: rgba(255, 255, 255, 0.08);
+
+    /* Borders & dividers */
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-default: rgba(255, 255, 255, 0.12);
+    --border-strong: rgba(245, 158, 11, 0.35);
+
+    /* Brand & accent palette */
+    --accent-gold: #f59e0b;
+    --accent-gold-soft: #fbbf24;
+    --accent-rose: #e11d48;
+    --accent-sky: #38bdf8;
+    --accent-emerald: #10b981;
+    --accent-violet: #8b5cf6;
+
+    /* Semantic text colors (WCAG AA on --bg-base) */
+    --text-primary: #f3f4f6;        /* 16.8:1 on bg-base */
+    --text-secondary: #cbd5e1;      /* 12.1:1 on bg-base */
+    --text-tertiary: #94a3b8;       /* 7.2:1 on bg-base */
+    --text-muted: #64748b;          /* 4.6:1 on bg-base — labels only */
+
+    /* Backwards-compat aliases used by older components */
+    --forest-ink: #0b1311;
+    --forest-deep: #060b0a;
+    --trail-gold: #f59e0b;
+    --slate-blue: #1e293b;
+    --rust: #e11d48;
+
+    /* Motion */
+    --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --motion-fast: 180ms;
+    --motion-base: 240ms;
+    --motion-slow: 360ms;
+
+    /* Shadows & glows */
+    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.32);
+    --shadow-elevated: 0 24px 64px rgba(0, 0, 0, 0.42);
+    --shadow-glow-gold: 0 0 28px rgba(245, 158, 11, 0.28);
+    --shadow-glow-sky: 0 0 28px rgba(56, 189, 248, 0.24);
+  }
+
+  html {
+    /* Bumped from default 14px to 16px for WCAG mobile readability (iOS auto-zoom threshold) */
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Accessible focus ring — 2px gold with 2px offset for keyboard users only */
+  :focus-visible {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 2px;
+    border-radius: 8px;
+  }
+
+  /* Remove focus ring for mouse users */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Custom Webkit Scrollbar (forest-ink / trail-gold) */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-base);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--slate-blue);
+    border-radius: 6px;
+    border: 1px solid var(--trail-gold);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-gold);
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: rgba(245, 158, 11, 0.3);
+    color: var(--text-primary);
+  }
+}
+
+/* ============================================================
+ * UTILITY CLASSES — small, composable, reusable
+ * ============================================================ */
+
+@layer utilities {
+  /* Tabular figures for stat columns, prices, timers */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Scroll-margin for hash anchor navigation (sticky nav offset) */
+  .scroll-anchor {
+    scroll-margin-top: 5rem;
+  }
+
+  /* Glass surface */
+  .glass-surface {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-default);
+  }
+
+  /* Subtle gold gradient text — used for highlighted numerals & headings */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Gradient border via masked pseudo-element (1px crisp line) */
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.5), rgba(56, 189, 248, 0.3), rgba(225, 29, 72, 0.3));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+/* ============================================================
+ * HERO PANEL (legacy hero with orbs + grid — kept for PathView/Dashboard)
+ * ============================================================ */
+.hero-panel {
+  background:
+    radial-gradient(circle at 82% 20%, rgba(245, 158, 11, 0.15), transparent 31%),
+    radial-gradient(circle at 38% 100%, rgba(56, 189, 248, 0.11), transparent 34%),
+    linear-gradient(115deg, rgba(15, 23, 21, 0.98), rgba(15, 28, 25, 0.92) 54%, rgba(7, 14, 12, 0.98));
+}
+
+.hero-grid {
+  opacity: 0.38;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.075) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: linear-gradient(to right, black 0%, rgba(0, 0, 0, 0.7) 58%, transparent 100%);
+}
+
+.hero-orb {
+  width: 19rem;
+  height: 19rem;
+  border-radius: 999px;
+  filter: blur(18px);
+  opacity: 0.28;
+  will-change: transform;
+  animation: orbDrift 11s var(--motion-ease) infinite alternate;
+}
+
+.hero-orb--gold { background: #f59e0b; }
+.hero-orb--blue { background: #38bdf8; animation-delay: -5s; }
+
+.hero-scan {
+  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.8), transparent);
+  animation: scanAcross 5.5s ease-in-out infinite;
+}
+
+.hero-metrics {
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.motion-card {
+  transition: transform var(--motion-base) var(--motion-ease),
+              border-color var(--motion-base) ease,
+              box-shadow var(--motion-base) ease;
+}
+
+.motion-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(245, 158, 11, 0.34);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(245, 158, 11, 0.05);
+}
+
+/* ============================================================
+ * KEYFRAMES
+ * ============================================================ */
+
+@keyframes orbDrift {
+  from { transform: translate3d(-1.25rem, -0.5rem, 0) scale(0.94); }
+  to   { transform: translate3d(1.25rem, 1.1rem, 0) scale(1.08); }
+}
+
+@keyframes scanAcross {
+  0%, 22% { transform: translateX(-100%); opacity: 0; }
+  30%     { opacity: 0.9; }
+  56%, 100% { transform: translateX(100%); opacity: 0; }
+}
+
+/* Page Transition Animations */
+.page-enter {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+.page-exit {
+  opacity: 0;
+  transform: translateY(-12px);
+  transition: opacity 300ms ease-in, transform 300ms ease-in;
+}
+
+/* Legacy keyframes preserved for existing components */
+@keyframes drawPath {
+  0% { stroke-dashoffset: 2000; }
+  100% { stroke-dashoffset: 0; }
+}
+.animate-drawPath {
+  animation: drawPath 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes bounceScale {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.35); }
+}
+.animate-bounceScale {
+  animation: bounceScale 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes breathingGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.2); }
+  50%      { box-shadow: 0 0 35px rgba(245, 158, 11, 0.5); }
+}
+.animate-breathingGlow {
+  animation: breathingGlow 3s ease-in-out infinite;
+}
+
+@keyframes shimmerBorder {
+  0%   { background: linear-gradient(0deg, #f59e0b, #e11d48, #38bdf8); }
+  50%  { background: linear-gradient(180deg, #38bdf8, #f59e0b, #e11d48); }
+  100% { background: linear-gradient(360deg, #f59e0b, #e11d48, #38bdf8); }
+}
+.animate-shimmerBorder {
+  animation: shimmerBorder 4s linear infinite;
+}
+
+@keyframes bounceDots {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+.animate-bounceDots {
+  animation: bounceDots 600ms ease-in-out infinite;
+}
+
+@keyframes badgeFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
+}
+.animate-badgeFloat {
+  animation: badgeFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes flyInBottom {
+  0%   { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-flyInBottom {
+  animation: flyInBottom 450ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInRight {
+  0%   { opacity: 0; transform: translateX(30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+.animate-slideInRight {
+  animation: slideInRight 350ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+.animate-typing {
+  animation: typing 2.5s steps(30, end) infinite alternate;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spinSlow 12s linear infinite;
+}
+
+@keyframes ripple {
+  0%   { opacity: 0.8; transform: translate(-50%, -50%) scale(0); }
+  100% { opacity: 0;   transform: translate(-50%, -50%) scale(2.5); }
+}
+.animate-ripple {
+  animation: ripple 600ms linear forwards;
+}
+
+/* Shimmer used by Skeleton component */
+@keyframes shimmer {
+  0%   { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.10) 50%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 1.8s linear infinite;
+}
+
+/* ============================================================
+ * ACCESSIBILITY: respect prefers-reduced-motion
+ * ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .motion-card:hover {
+    transform: none;
+  }
+}
