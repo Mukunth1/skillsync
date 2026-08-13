@@ -23,7 +23,7 @@ A full-stack learning platform that turns curated learning paths and coding chal
 
 ## 📸 Screenshots
 
-> Drop your PNGs into [`docs/`](./docs/) with the filenames listed in [`docs/README.md`](./docs/README.md) and the images below will render automatically.
+
 
 <div align="center">
 
