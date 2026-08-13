@@ -1,0 +1,13 @@
+# CODEOWNERS — these users are automatically requested as reviewers for any PR
+# that touches the matching paths. See https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for the whole repo
+*       @mukunthr0
+
+# Backend
+/backend/    @mukunthr0
+
+# Frontend
+/src/        @mukunthr0
+*.ts         @mukunthr0
+*.tsx        @mukunthr0
