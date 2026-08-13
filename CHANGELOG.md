@@ -26,5 +26,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - JSON-seeded catalog (skills, paths, milestones, code tasks) on first boot
 - Default admin bootstrap account on first backend start
 
-[Unreleased]: https://github.com/mukunthr0/skillsync/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/mukunthr0/skillsync/releases/tag/v1.0.0
+[Unreleased]: https://github.com/Mukunth1/skillsync/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/Mukunth1/skillsync/releases/tag/v1.0.0

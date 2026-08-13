@@ -2,12 +2,12 @@
 # that touches the matching paths. See https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
 
 # Default owner for the whole repo
-*       @mukunthr0
+*       @Mukunth1
 
 # Backend
-/backend/    @mukunthr0
+/backend/    @Mukunth1
 
 # Frontend
-/src/        @mukunthr0
-*.ts         @mukunthr0
-*.tsx        @mukunthr0
+/src/        @Mukunth1
+*.ts         @Mukunth1
+*.tsx        @Mukunth1

@@ -114,7 +114,7 @@ A full-stack learning platform that turns curated learning paths and coding chal
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/mukunthr0/skillsync.git
+git clone https://github.com/Mukunth1/skillsync.git
 cd skillsync
 ```
 
@@ -327,7 +327,7 @@ This project is licensed under the **MIT License** — see the [LICENSE](./LICEN
 
 ## 👤 Author
 
-**mukunthr0** — [github.com/mukunthr0](https://github.com/mukunthr0)
+**Mukunth1** — [github.com/Mukunth1](https://github.com/Mukunth1)
 
 ---
 
